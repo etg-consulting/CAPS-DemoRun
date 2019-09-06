@@ -2,7 +2,6 @@ FROM mcr.microsoft.com/dotnet/core/sdk:2.2-alpine AS build
 WORKDIR /app
 
 # copy csproj and restore as distinct layers
-COPY *.sln .
 COPY backend/*.csproj ./backend/
 RUN dotnet restore
 
