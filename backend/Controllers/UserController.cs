@@ -1,13 +1,16 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Linq;
 using Caps.Services;
 using Caps.Models;
 
 namespace Caps.Controllers
 {
-  [Authorize]
+    [Authorize]
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("[controller]")]
     public class UsersController : ControllerBase
     {
         private IUserService _userService;
@@ -17,23 +20,10 @@ namespace Caps.Controllers
             _userService = userService;
         }
 
-        [AllowAnonymous]
-        [HttpPost("authenticate")]
-        public IActionResult Authenticate([FromBody]User userParam)
-        {
-            var user = _userService.Authenticate(userParam.Username, userParam.Password);
-
-            if (user == null)
-                return BadRequest(new { message = "Username or password is incorrect" });
-
-            return Ok(user);
-        }
-
         [HttpGet]
-        public IActionResult GetAll()
+        public ActionResult<IEnumerable<User>> List()
         {
-            var users =  _userService.GetAll();
-            return Ok(users);
-        }
+            return Ok(_userService.GetAll());
+        }        
     }
 }

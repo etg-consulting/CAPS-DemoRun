@@ -22,7 +22,13 @@ namespace Caps.Services
         // users hardcoded for simplicity, store in a db with hashed passwords in production applications
         private List<User> _users = new List<User>
         { 
-            new User { Id = 1, FirstName = "Test", LastName = "User", Username = "test", Password = "test" } 
+            new User { Id = 1, FirstName = "Enver", LastName = "Yilmaz", Username = "enver.yilmaz", Password = "p@ssw0rd" },
+            new User { Id = 2, FirstName = "Salim", LastName = "Serdar", Username = "salim.serdar", Password = "p@ssw0rd" },
+            new User { Id = 3, FirstName = "Selami", LastName = "Kul", Username = "selami.kul", Password = "p@ssw0rd" },
+            new User { Id = 4, FirstName = "Ender", LastName = "Yilmaz", Username = "ender.yilmaz", Password = "p@ssw0rd" },
+            new User { Id = 5, FirstName = "Mesut", LastName = "Boztas", Username = "mesut.boztas", Password = "p@ssw0rd" },
+            new User { Id = 6, FirstName = "Tufan", LastName = "Bilge", Username = "tufan.bilge", Password = "p@ssw0rd" },
+            new User { Id = 7, FirstName = "Celal", LastName = "Unver", Username = "celal.unver", Password = "p@ssw0rd" } 
         };
 
         private readonly AppSettings _appSettings;
